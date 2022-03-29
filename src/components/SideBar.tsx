@@ -1,8 +1,17 @@
 import { Button } from './Button';
 
-export function SideBar(props) {
+interface SideBarProps {
+  genres: {
+    id: number;
+    name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+    title: string;
+  }[];
+  selectedGenreId: number;
+  setSelectedGenreId: (id: number) => void;
+}
+
+export function SideBar(props: SideBarProps) {
   const { genres, setSelectedGenreId, selectedGenreId } = props;
-  console.log(props)
   function handleClickButton(id: number) {
     setSelectedGenreId(id);
   }
